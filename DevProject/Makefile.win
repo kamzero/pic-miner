@@ -1,0 +1,55 @@
+# Project: Pac-Miner
+# Makefile created by Dev-C++ 5.8.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o ../filemanage/picture.o ../filemanage/ranking.o ../simpleGUI/imgui.o ../SourceFiles/main.o
+LINKOBJ  = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o ../filemanage/picture.o ../filemanage/ranking.o ../simpleGUI/imgui.o ../SourceFiles/main.o
+LIBS     = -L"D:/DevC/Dev-Cpp/MinGW64/lib" -L"D:/DevC/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows -lwinmm  -mwindows -pg -g3
+INCS     = -I"D:/DevC/Dev-Cpp/MinGW64/include" -I"D:/DevC/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DevC/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/Pac-Miner_Group23/filemanage" -I"D:/Pac-Miner_Group23/libgraphics" -I"D:/Pac-Miner_Group23/simpleGUI"
+CXXINCS  = -I"D:/DevC/Dev-Cpp/MinGW64/include" -I"D:/DevC/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/DevC/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/DevC/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++" -I"D:/Pac-Miner_Group23/filemanage" -I"D:/Pac-Miner_Group23/libgraphics" -I"D:/Pac-Miner_Group23/simpleGUI"
+BIN      = Pac-Miner.exe
+CXXFLAGS = $(CXXINCS) -pg -g3
+CFLAGS   = $(INCS) -pg -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../libgraphics/exceptio.o: ../libgraphics/exceptio.c
+	$(CC) -c ../libgraphics/exceptio.c -o ../libgraphics/exceptio.o $(CFLAGS)
+
+../libgraphics/genlib.o: ../libgraphics/genlib.c
+	$(CC) -c ../libgraphics/genlib.c -o ../libgraphics/genlib.o $(CFLAGS)
+
+../libgraphics/graphics.o: ../libgraphics/graphics.c
+	$(CC) -c ../libgraphics/graphics.c -o ../libgraphics/graphics.o $(CFLAGS)
+
+../libgraphics/random.o: ../libgraphics/random.c
+	$(CC) -c ../libgraphics/random.c -o ../libgraphics/random.o $(CFLAGS)
+
+../libgraphics/simpio.o: ../libgraphics/simpio.c
+	$(CC) -c ../libgraphics/simpio.c -o ../libgraphics/simpio.o $(CFLAGS)
+
+../libgraphics/strlib.o: ../libgraphics/strlib.c
+	$(CC) -c ../libgraphics/strlib.c -o ../libgraphics/strlib.o $(CFLAGS)
+
+../filemanage/picture.o: ../filemanage/picture.c
+	$(CC) -c ../filemanage/picture.c -o ../filemanage/picture.o $(CFLAGS)
+
+../filemanage/ranking.o: ../filemanage/ranking.c
+	$(CC) -c ../filemanage/ranking.c -o ../filemanage/ranking.o $(CFLAGS)
+
+../simpleGUI/imgui.o: ../simpleGUI/imgui.c
+	$(CC) -c ../simpleGUI/imgui.c -o ../simpleGUI/imgui.o $(CFLAGS)
+
+../SourceFiles/main.o: ../SourceFiles/main.c
+	$(CC) -c ../SourceFiles/main.c -o ../SourceFiles/main.o $(CFLAGS)
